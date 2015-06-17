@@ -1,0 +1,13 @@
+<h1> ~~ Student Details ~~ </h1>
+
+<% if @student %>
+	<p><span>First Name: <%=@student.first_name%></span></p>
+	<p><span>Last Name:  <%=@student.last_name%></span></p>
+	<p><span>Email:      <%=@student.email%></span></p>
+	<p><span>Phone:      <%=@student.phone%></span></p>
+	<p><span>Status:     <%=@student.status%></span></p>
+<% else %>
+	<p>	Student not found </p>
+<% end %>
+
+<p><%= link_to("Back",root_path) %></p>
