@@ -51,7 +51,7 @@ class StudentsController < ApplicationController
 		@student = Student.find_by_id(params[:id])		
 		@student.destroy
 		flash[:notice] = "Student was successfully removed."
-		redirect_to students_paths
+		redirect_to students_path
 
 	end
 
