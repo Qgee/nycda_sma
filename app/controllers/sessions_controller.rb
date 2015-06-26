@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
 
+  before_action :authenticate, only: [:destroy]
+
   def new
   end
 
   def create
-    binding.pry
+
     #find user by email address
 
     @user = User.find_by_email(params[:email])
@@ -17,11 +19,16 @@ class SessionsController < ApplicationController
       flash[:notice] = "Signed In"
       redirect_to students_path
     else
-      flash[:alert] = ""
+      render :new
+      flash.now[:alert] = "Invalid email or password"
     end
 
     #if not, render :new view
+  end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Successfully logged out"
   end
 
 end

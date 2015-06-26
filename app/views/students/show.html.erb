@@ -8,8 +8,16 @@
 	<p><span>Email:      <%=@student.email%></span></p>
 	<p><span>Phone:      <%=@student.phone%></span></p>
 	<p><span>Status:     <%=@student.status%></span></p>
+
+  <h2>Projects:</h2>
+  <ul>
+    <% @student.projects.each do |project| %>
+      <li> <%= project.name %> </li>
+    <% end %>
+  </ul>
+
 <% else %>
 	<p>	Student not found </p>
 <% end %>
 
-<p><%= link_to("Back",root_path) %></p>
+<p><%= link_to("Back",students_path) %></p>

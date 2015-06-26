@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
 
+	before_action :authenticate
+
 	def index
 		# make active record request for all students
 		# store the result in a variable called @students
