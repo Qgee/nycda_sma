@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
 	end
 
 	def create
-		
+		binding.pry
 		# Initialize a new student object with form values
 		@student = Student.new(student_params)
 
@@ -39,6 +39,7 @@ class StudentsController < ApplicationController
 	end
 
 	def update
+		binding.pry
 		@student = Student.find_by_id(params[:id])		
 
 		if @student.update_attributes(student_params)
@@ -62,7 +63,7 @@ class StudentsController < ApplicationController
 
 	def student_params
 		
-		params.require(:student).permit(:first_name,:last_name,:phone,:email)
+		params.require(:student).permit(:first_name,:last_name,:phone,:email,:status, :course_ids=>[])
 	end
 
 
