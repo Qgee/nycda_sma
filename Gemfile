@@ -17,6 +17,7 @@ source 'https://rubygems.org'
     gem 'byebug'
     gem 'web-console', '~> 2.0'
     gem 'spring'
+  end
 
-end
-
+  gem 'rails_12factor', group: :production
+  ruby "2.0.0"
